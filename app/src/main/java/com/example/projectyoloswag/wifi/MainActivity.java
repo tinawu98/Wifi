@@ -41,17 +41,18 @@ public class MainActivity extends AppCompatActivity {
                 WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
                 WifiInfo wifi = wifiManager.getConnectionInfo();
                 String bssid = wifi.getBSSID();
+                String mac = wifi.getMacAddress();
                 int rssi = wifi.getRssi(); //signal strength in dBm
                 Log.e("updated","up");
                 int freq = wifi.getFrequency(); //frequency in MHz
                 TextView bssidView = (TextView) findViewById(R.id.bssid);
                 TextView rssiView = (TextView) findViewById(R.id.rssi);
                 TextView freqView = (TextView) findViewById(R.id.frequency);
+                TextView macView = (TextView) findViewById(R.id.mac);
+                macView.setText(mac);
                 bssidView.setText(bssid);
                 rssiView.setText(rssi + " ");
                 freqView.setText(freq + " ");
-
-
 
     }
 
